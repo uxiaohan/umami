@@ -10,8 +10,6 @@
     "url": "https://github.com/umami-software/umami.git"
   },
   "scripts": {
-    "build-db": "npm-run-all copy-db-files build-db-client resolve-db",
-    "resolve-db": "prisma migrate resolve --applied '05_add_visit_id'",
     "dev": "next dev -p 3000",
     "build": "npm-run-all check-env build-db check-db build-tracker build-geo build-app",
     "start": "next start",
@@ -22,6 +20,7 @@
     "build-app": "next build",
     "build-components": "rollup -c rollup.components.config.mjs",
     "build-tracker": "rollup -c rollup.tracker.config.mjs",
+    "build-db": "npm-run-all copy-db-files build-db-client",
     "build-lang": "npm-run-all format-lang compile-lang clean-lang download-country-names download-language-names",
     "build-geo": "node scripts/build-geo.js",
     "build-db-schema": "prisma db pull",
